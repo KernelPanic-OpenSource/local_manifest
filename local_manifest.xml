@@ -2,10 +2,19 @@
 <manifest>
   <remote name="github"
           fetch="https://github.com/" />
+  <remote name="sakura"
+          fetch="https://github.com/ProjectSakura"
+          revision="11" />
   <!-- Trees -->
 # we are syncing AospExtended rom, i dont want to sync this things, i got these name from AospExtended manifest. https://github.com/AospExtended/manifest/blob/b81a4f69675c6da37bdf30bdd8c3ba9749a9829d/default.xml#L64-L74
+  <remove-project name="hardware/qcom-caf/msm8998/audio" />
+  <remove-project name="hardware/qcom-caf/msm8998/display" />
+  <remove-project name="hardware/qcom-caf/msm8998/media" />
   <project path="device/xiaomi/whyred" name="KernelPanic-OpenSource/android_device_xiaomi_whyred" remote="github" revision="cherish-r-ng" />
   <project path="vendor/xiaomi/whyred" name="KernelPanic-OpenSource/android_vendor_xiaomi_whyred" remote="github" revision="cherish" />
   <project path="kernel/xiaomi/whyred" name="attack11/Whyred" remote="github" revision="extended-eas" />
   <project path="vendor/MiuiCamera" name="KernelPanic-OpenSource/android_vendor_MiuiCamera" remote="github" revision="android-11" />
+  <project path="hardware/qcom-caf/msm8998/audio" name="android_hardware_qcom_audio" groups="qcom,qcom_audio,pdk-qcom" remote="sakura" revision="lineage-18.1-caf-msm8998" />
+  <project path="hardware/qcom-caf/msm8998/display" name="android_hardware_qcom_display" groups="pdk-qcom,qcom,qcom_display" remote="sakura" revision="lineage-18.1-caf-msm8998" />
+  <project path="hardware/qcom-caf/msm8998/media" name="android_hardware_qcom_media" groups="qcom,pdk-qcom" remote="sakura" revision="lineage-18.1-caf-msm8998" />
 </manifest>
