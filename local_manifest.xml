@@ -1,11 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+  <!-- Repositories -->
 
-  <!-- Trees -->
-  <project path="device/xiaomi/whyred" name="LineageOS/android_device_xiaomi_whyred" remote="github" revision="lineage-18.1" />
-  <project path="kernel/xiaomi/sdm660" name="LineageOS/android_kernel_xiaomi_sdm660" remote="github" revision="lineage-18.1" />
-  <project path="device/xiaomi/sdm660-common" name="LineageOS/android_device_xiaomi_sdm660-common" remote="github" revision="lineage-18.1" />
-  <project path="vendor/xiaomi/whyred" name="KernelPanic-OpenSource/android_vendor_xiaomi_whyred" remote="github" revision="omni-11" />
-  <project path="vendor/xiaomi/sdm660-common" name="KernelPanic-OpenSource/android_vendor_xiaomi_sdm660-common" remote="github" revision="omni-11" />
-  
+  <remote name="github" fetch="https://github.com" />
+  <remote  name="lineage"
+           fetch="https://github.com/LineageOS"
+           review="https://review.lineageos.org/"
+           revision="refs/heads/lineage-18.1" />
+
+  <remove-project name="platform_bootable_recovery" />
+  <project name="AOSP-whatever/platform_bootable_recovery" path="bootable/recovery" remote="github" revision="hos-rika" />
+  <remove-project name="platform_build" />
+  <project name="AOSP-whatever/platform_build_make" path="build/make" remote="github" revision="hos-rika">
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <remove-project name="platform_build_soong" />
+  <project name="AOSP-whatever/platform_build_soong" path="build/soong" remote="github" revision="hos-rika" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+  <project name="LineageOS/android_device_qcom_sepolicy" path="device/qcom/sepolicy-legacy-um" remote="github" revision="lineage-18.1-legacy-um" />
+  <project name="LineageOS/android_external_ant-wireless_antradio-library" path="external/ant-wireless/antradio-library" remote="github" revision="lineage-18.1" />
+  <remove-project name="platform/external/tinycompress" />
+  <project name="AOSP-whatever/platform_external_tinycompress" path="external/tinycompress" remote="github" revision="android-11.0.0" />
+  <remove-project name="platform/frameworks/av" />
+  <project name="AOSP-whatever/platform_frameworks_av" path="frameworks/av" remote="github" revision="hos-rika" />
+  <remove-project name="platform_frameworks_base" />
+  <project name="AOSP-whatever/platform_frameworks_base" path="frameworks/base" remote="github" revision="hos-rika" />
+  <remove-project name="platform/hardware/interfaces" />
+  <project name="AOSP-whatever/platform_hardware_interfaces" path="hardware/interfaces" remote="github" revision="hos-rika" />
+  <project name="LineageOS/android_hardware_sony_timekeep" path="hardware/sony/timekeep" remote="github" revision="lineage-18.1" />
+  <project name="omnirom/android_packages_apps_Matlog" path="packages/apps/Matlog" remote="github" revision="android-11" />
+   <remove-project name="platform/packages/apps/Settings" />
+  <project name="AOSP-whatever/platform_packages_apps_Settings" path="packages/apps/Settings" remote="github" revision="hos-rika" />
+  <project name="AOSP-whatever/platform_packages_apps_Snap" path="packages/apps/Snap" remote="github" revision="android-11.0.0" />
+  <remove-project name="platform_system_core" />
+  <project name="AOSP-whatever/platform_system_core" path="system/core" remote="github" revision="hos-rika" />
+  <remove-project name="platform/system/sepolicy" />
+  <project name="AOSP-whatever/platform_system_sepolicy" path="system/sepolicy" remote="github" revision="hos-rika" />
+  <project name="LineageOS/android_vendor_qcom_opensource_audio" path="vendor/qcom/opensource/audio" remote="github" revision="lineage-18.1" />
+  <remove-project name="platform_vendor_qcom_opensource_interfaces" />
+  <project name="LineageOS/android_vendor_qcom_opensource_interfaces" path="vendor/qcom/opensource/interfaces" remote="github" revision="lineage-18.1" />
+  <remove-project name="platform_vendor_qcom_opensource_power" />
+  <project name="AOSP-whatever/platform_vendor_qcom_opensource_power" path="vendor/qcom/opensource/power" remote="github" revision="android-11.0.0" />
+
+  <remove-project name="device/generic/opengl-transport" />
+
+  <!-- Device stuff -->
+  <!-- Redmi Note 5 Pro (Whyred) -->
+  <project path="device/xiaomi/whyred" name="KernelPanic-OpenSource/android_device_xiaomi_whyred" remote="github" revision="hentai-11-ng" />
+  <project path="kernel/xiaomi/whyred" name="attack11/Whyred" remote="github" revision="extended-eas" />
+  <project path="device/xiaomi/sdm660-common" name="KernelPanic-OpenSource/android_device_xiaomi_sdm660-common" remote="github" revision="cherish-11" />
+  <project path="vendor/xiaomi/whyred" name="KernelPanic-OpenSource/android_vendor_xiaomi_whyred" remote="github" revision="cherish-11" />
+  <project path="vendor/xiaomi/sdm660-common" name="KernelPanic-OpenSource/android_vendor_xiaomi_sdm660-common" remote="github" revision="cherish-11" />
+  <project path="vendor/MiuiCamera" name="KernelPanic-OpenSource/android_vendor_MiuiCamera" remote="github" revision="android-11" />
+
+  <!-- HALs -->
+  <project path="hardware/qcom-caf/msm8998/audio" name="android_hardware_qcom_audio" remote="lineage" revision="lineage-18.1-caf-msm8998" />
+  <project path="hardware/qcom-caf/msm8998/display" name="android_hardware_qcom_display" remote="lineage" revision="lineage-18.1-caf-msm8998" />
+  <project path="hardware/qcom-caf/msm8998/media" name="android_hardware_qcom_media" remote="lineage" revision="lineage-18.1-caf-msm8998" />
+
 </manifest>
