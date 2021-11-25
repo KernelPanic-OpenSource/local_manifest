@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- Trees -->
+  <project path="kernel/redmi/begonia" name="OP2KT/kernel_redmi_begonia" remote="github" revision="twelve" />
+  <project path="device/redmi/begomia" name="OP2KT/device_redmi_begonia" remote="github" revision="twelve" />
+  <project path="vendor/redmi/begonia" name="OP2KT/vendor_redmi_begonia" remote="github" revision="twelve" />
+  <project path="vendor/redmi/begonia-ims" name="OP2KT/vendor_redmi_begonia-ims" remote="github" revision="twelve" />
+  
+</manifest>
